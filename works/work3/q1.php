@@ -24,5 +24,8 @@ if (double(-2) === -4) {
 // ↑確認用コード↑(編集しないこと)
 
 // ここにコードを追記
-function double() {
+function double($x) {
+    return $x * 2;
 }
+
+

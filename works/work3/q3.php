@@ -34,4 +34,8 @@ if (average($values) === 0) {
 
 // ここにコードを追記
 function average($values) {
+    $sum = array_sum($values);
+    $count = count($values);
+    return $sum / $count;
 }
+
