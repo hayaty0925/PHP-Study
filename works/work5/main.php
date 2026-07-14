@@ -3,15 +3,15 @@
 // Userクラスの読み込み
 require 'User.php';
 
-$mainUser = new User(1111, "田中", 21);
-$subUser = new User(2222, "伊藤", 21);
+$mainUser = new User(1111, "田中", 21, "大阪");
+$subUser = new User(2222, "伊藤", 21, "東京");
 
 showUserStatus($mainUser);
 showUserStatus($subUser);
 
 $mainUser->setName("佐藤");
-$mainUser->setAge(30);
-
+$mainUser->setAge(-5);
+$mainUser->setAddress("");
 showUserStatus($mainUser);
 showUserStatus($subUser);
 
@@ -25,4 +25,5 @@ function showUserStatus(User $user): void {
     echo "ID: ".$user->getId()."\n";
     echo "名前: ".$user->getName()."\n";
     echo "年齢: ".$user->getAge()."\n";
+    echo "住所: ".$user->getaddress();
 }
