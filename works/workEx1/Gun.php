@@ -8,6 +8,8 @@ class Gun {
     private $maxMagazine;
     // 残弾
     private $currentMagazine;
+
+    private $defaultMagazine;
     // ↑フィールド============================
 
     // コンストラクタ
@@ -15,6 +17,7 @@ class Gun {
         // 問題1
         $this->name = $name;
         $this->maxMagazine = $maxMagazine;
+        $this->defaultMagazine = $maxMagazine;
         $this->currentMagazine = 0;
     }
 
@@ -30,17 +33,29 @@ class Gun {
     // リロード
     function reload() {
         // 問題2
-        if($this->currentMagazine ==  $this->maxMagazine){
-            echo "リロードの必要はありません";
-            return;
-        }
+   if ($this->currentMagazine == $this->maxMagazine) {
+        echo "リロードの必要はありません\n";
+    } else {
         $this->currentMagazine = $this->maxMagazine;
+    }
     }
 
     // 発砲
     function fire() {
-        // 問題3
+
+    if ($this->currentMagazine == 0) {
+        echo "リロードしてください\n";
+        return;
     }
+
+    $this->currentMagazine--;
+
+    echo $this->name . "を発砲しました。残弾: " . $this->currentMagazine . "発\n";
+
+    if ($this->currentMagazine == 0) {
+        echo "リロードしてください\n";
+    }
+}
 
     // 拡張マガジンを装着
     function setExtendedMagazine() {

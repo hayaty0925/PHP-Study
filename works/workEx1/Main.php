@@ -9,3 +9,7 @@ $subWeapon = new Gun("Mosin-Nagant",5);
 // 現在の状態を表示
 $mainWeapon->echoStatus();
 $subWeapon->echoStatus();
+
+$mainWeapon->reload();
+$mainWeapon->fire();
+$mainWeapon->echoStatus();
