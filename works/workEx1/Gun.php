@@ -58,12 +58,28 @@ class Gun {
 }
 
     // 拡張マガジンを装着
-    function setExtendedMagazine() {
+    function setExtendedMagazine($plus) {
         // 問題4
+     if (!is_int($plus) || $plus <= 0) {
+        echo "引数が不正です\n";
+        return;
     }
+
+    $this->maxMagazine = $this->defaultMagazine + $plus;
+}
 
     // 拡張マガジンを取外し
     function unsetExtendedMagazine() {
         // 問題4
+    if ($this->maxMagazine == $this->defaultMagazine) {
+        echo "拡張マガジンは装着されていません\n";
+        return;
     }
+
+    $this->maxMagazine = $this->defaultMagazine;
+
+    if ($this->currentMagazine > $this->maxMagazine) {
+        $this->reload();
+    }
+}
 }
